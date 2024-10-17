@@ -8,16 +8,18 @@
 <body>
     <script>
 
-        // maneira básica de pedir ao usuário para digitar os dados e exibir na tela
+        //usando o prompt para pedir para o cliente digitar os valores na tela para definir as propriedades de um objeto "usuario"
+
+
        const usuario = {}
 
        usuario.nome = prompt('Digite seu nome:');
        usuario.idade = parseInt(prompt('Digite sua idade: '));
        usuario.altura = parseFloat(prompt('Digite sua altura: '));
 
-       document.write(`Nome: ${usuario.nome} <br>`)
-       document.write(`Idade: ${usuario.idade}<br>`)
-       document.write(`Altura: ${usuario.altura}`)
+       document.write("Nome: " + usuario.nome + "<br>")
+       document.write("Idade: " + usuario.idade + "<br>")
+       document.write("Altura: " + usuario.altura + "<br>")
     </script>
     
 </body>

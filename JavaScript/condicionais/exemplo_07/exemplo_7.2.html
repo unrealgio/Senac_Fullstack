@@ -12,24 +12,22 @@
 
     <script>
 
-        let n1 = parseFloat(prompt("Digite a primeira nota"));
-        let n2 = parseFloat(prompt("Digite a segunda nota"));
+        let n1 = parseFloat(prompt("Digite a primeira nota")); // declarando variavel que recebe valor do tipo "Float" para receber um valor informado pelo usuário.
+        let n2 = parseFloat(prompt("Digite a segunda nota")); // declarando variavel que recebe valor do tipo "Float" para receber um valor informado pelo usuário.
 
-        if (n1 <= 10 && n2 <= 10 && n1 >= 0 && n2 >= 0) {
+        if (n1 <= 10 && n2 <= 10 && n1 >= 0 && n2 >= 0) { // criando verificador/condicional para saber a situação da média do aluno.
             let media = (n1 + n2) / 2;
 
-            if (media > 4 && n1 > 0 && n2 > 0) {
-                alert(`Sua nota foi ${media} ` + 'Aprovado'); //verifica se está aprovado
-            } else if (media >= 3 && media <= 4 && n1 != 0 && n2 != 0) {
-                alert(`Sua nota foi ${media} ` + 'Recuperação'); // verifica s e está em recuperação
-            } else if (media < 3) {
-                alert(`Sua nota foi ${media} ` + 'Reprovado'); //Caso não atenda as opções anteriormente, informa que está reprovado.
+            if (media > 4 && n1 > 0 && n2 > 0) {  // faz a verificação para saber se a média do aluno foi aprovada.
+                alert("Sua nota foi: "+ media + 'Aprovado'); 
+            } else if (media >= 3 && media <= 4 && n1 != 0 && n2 != 0) { // faz a verificação para saber se a média do aluno foi recuperação.
+                alert("Sua nota foi: "+ media + 'Recuperação'); 
+            } else if (media < 3) { // faz a verificação para saber se a média do aluno foi reprovada.
+                alert("Sua nota foi: "+ media + 'Reprovado'); 
             }
         } else {
-            alert('Digite um número válido'); // informa que o usuário digitou errado.
+            alert('Digite um número válido'); // caso nenhuma das outras condições tenham sido atendidas, informa que o usuário digitou um valor inválido.
         }
-
-
 
     </script>
 </body>

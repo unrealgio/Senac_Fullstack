@@ -1,4 +1,4 @@
-// Receba a altura e o peso de uma pessoa e calcule seu Índice de Massa Corporal (IMC). Exiba uma mensagem indicando se ela está abaixo do peso, no peso normal, com sobrepeso ou com obesidade.
+// Exercício IMC: Receba a altura e o peso de uma pessoa e calcule seu Índice de Massa Corporal (IMC). Exiba uma mensagem indicando se ela está abaixo do peso, no peso normal, com sobrepeso ou com obesidade.
 
 let peso = 75; // em kg
 let altura = 1.8; // em metros
@@ -14,8 +14,8 @@ if (imc < 18.5) {
     console.log("Obesidade. IMC: " + imc.toFixed(2));
 }
 
-// 3. Verificação de triângulo
-// Escreva um programa que receba três valores como os lados de um triângulo e determine se eles podem formar um triângulo válido. Além disso, verifique se o triângulo é equilátero, isósceles ou escaleno.
+
+// Exercício Triangulo: Escreva um programa que receba três valores como os lados de um triângulo e determine se eles podem formar um triângulo válido. Além disso, verifique se o triângulo é equilátero, isósceles ou escaleno.
 
 
 
@@ -40,8 +40,7 @@ else if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1
 }
 
 
-// 4. Cálculo de tarifa de energia
-// Crie um programa que calcule o valor da tarifa de energia elétrica com base no consumo em kWh. As tarifas são:
+// Exercício Energia: Crie um programa que calcule o valor da tarifa de energia elétrica com base no consumo em kWh. As tarifas são:
 
 // Até 100 kWh: R$ 0,50 por kWh
 // De 101 a 200 kWh: R$ 0,75 por kWh
@@ -63,8 +62,7 @@ if (consumo <= 100) {
 console.log("O valor total da conta de energia é: R$ " + valorTotal.toFixed(2));
 
 
-// 5. Cálculo de imposto de renda
-// Escreva um programa que calcule o imposto de renda de uma pessoa com base no seu salário mensal, seguindo as faixas:
+// Exercício Imposto de renda: Escreva um programa que calcule o imposto de renda de uma pessoa com base no seu salário mensal, seguindo as faixas:
 
 // Até R$ 2.000: isento
 // De R$ 2.001 a R$ 3.500: 10% de imposto
