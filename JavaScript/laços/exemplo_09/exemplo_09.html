@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+
+<body>
+    <h1>Loops - tabuada</h1>
+
+    <script>
+        let n = parseFloat(prompt('Digite um número'));
+
+        let contador = 0
+
+
+        // enquanto (contador <= 1000)
+
+        if (!isNaN(n)) {
+            while (contador <= 10) {
+                document.write(n + "x" + contador + "=" + n*contador)
+                contador++;
+            }
+
+            document.write('Saiu do loop')
+        } else {
+            alert('Digite um número válido')
+        }
+
+        // o simbolo de exclamação '!' significa negação, logo a expressão "!isNaN" pode ser lido "Se for um número" pois o NaN significa "Not a number" logo seria "!Not a Number" ou seje "its a number" seria como uma negação da negação
+
+        // No profissional não se utiliza mais o 'document.write'
+
+        // o loop while é ideal quando não sabemos quantas vezes o código será executado
+
+
+    </script>
+
+</body>
+
+</html>

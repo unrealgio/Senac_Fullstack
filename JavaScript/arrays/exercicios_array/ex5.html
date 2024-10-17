@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4 array</title>
+</head>
+
+<body>
+    <!-- Objetivo: contar quantos são os números pares -->
+    <script>
+        let numeros = [];
+        let contagemPares = 0;
+
+        // Pedir 10 números ao usuário
+        for (let i = 0; i < 10; i++) {
+            let numero = parseFloat(prompt("Digite o número " + (i + 1) + ":"));
+            numeros.push(numero);
+
+            // Verificar se o número é par
+            if (numero % 2 === 0) {
+                contagemPares++;
+                document.write(`Os números pares são: ${numero} <br>`)
+            }
+        }
+
+        // Exibir o total de números pares
+        document.write("Quantidade de números pares: " + contagemPares);
+
+    </script>
+</body>
+
+</html>
