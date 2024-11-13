@@ -1,0 +1,440 @@
+create table cliente( -- criando tabela cliente
+	idcliente integer not null,
+	nome varchar(50) not null,
+	cpf char(11),
+	rg varchar(15),
+	data_nascimento date,
+	genero char(1),
+	profissao varchar(30),
+	logradouro varchar(30),
+	numero varchar(10),
+	complemento varchar(30),
+	bairro varchar(30),
+	municipio varchar(30),
+	uf varchar(30),
+	observacoes text,
+	
+	--primary key (chave primaria)
+	
+	constraint pk_cln_idcliente primary key (idcliente) -- criando chave primaria da tabela cliente
+);
+
+
+-- Inserindo dados na tabela cliente
+
+insert into cliente (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(1, 'Manoel', '10510345698', '003002001','2000-01-30','M','medico','Rua Perdi as Botas', '84', 'Casa', 'Mae joana', 'Nuquinha', 'RN')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(2, 'Matheus', '10520321436', '003008001','2000-08-30','M','Secretario','Rua Joaquim Nabuco', '248', 'Casa', 'Nazare', 'Natal', 'RN')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(3, 'Giovanni', '10520451436', '003108001','1999-10-30','M','Estudante','Av Antonio Basilio', '702', 'Apartamento', 'Lagoa Nova', 'Natal', 'RN')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(4, 'Thalisson', '10520414436', '003103601','1999-9-10','M','Motorista','Rua da Quintas', null, 'Apartamento', null, 'Recife', 'PE')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(5, 'Victor', '11420414436', '014103601','1995-9-10','M','engenheiro',null, null, 'Apartamento', null, 'Joao Pessoa', 'PB')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(6, 'Luana', '10520414436', '003145601','1998-12-10','F','Medico','Rua Tacaca', null, 'Casa', null, 'Amapa', 'PA')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(7, 'Patricia', '10780414436', '046103601','200-4-10','F','Dentista','Rua Hermes da Fonseca', '99', 'Apartamento', null, 'São Paulo', 'SP')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(8, 'Fernando', '10520478436', '001503601','2005-9-10','M','Prof','Av Salgado Filho', null, 'Apartamento', 'Tirol', 'Natal', 'RN')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(9, 'Maria', '10520414416', '003104101','1989-9-10','F','professora','Rua do Motor', '45', 'Apartamento', 'Rocas', 'Rio de Janeiro', 'RJ')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(10, 'Aparecida', '10521464416', '004704501','1989-9-10','F','prof',null, '45', 'casa', 'Rio da Piranha', 'Manaus', 'AM')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(11, 'Priscila', '10520464786', '004774101','2003-8-18','F','medica',null, '78', 'Ap', null, 'Rua do Sul', 'RS')
+
+insert into cliente(idcliente, nome, cpf, rg, data_nascimento, genero, profissao, logradouro, numero, complemento, bairro, municipio, uf)
+values(12, 'Pablo', '13320464416', '004704501','1987-9-10','M','prof',null, '45', 'casa', 'Rocas', null, 'RJ')
+
+select * from cliente; --seleciona todos os dados da tabela cliente
+
+select nome, cpf from cliente; -- seleciona apenas as colunas especificas da tabela cliente
+
+select data_nascimento as "data de nascimento" from cliente; -- impõe um "nome imaginário" à coluna da tabela cliente
+
+select 'CPF: ' || cpf || 'RG: ' || rg as "CPF e RG" from cliente; -- "||" significa concatenação na linguagem SQL
+
+-- o comando "where" significa onde, ele é usado para indicar uma condição para determinado comando.
+
+select * from cliente where data_nascimento between '2000-01-01' and '2005-01-01' -- buscando em todos os elementos da tabela, para selecionar elementos especificos onde o valor de  "data_nascimento" está entre os valores especificados. 
+
+-- o comando "between" significa "entre"
+select * from cliente where data_nascimento >= '1990-01-01' and data_nascimento <= '2005-01-01' -- buscando em todos os elementos da tabela, para selecionar elementos especificos onde o valor de  "data_nascimento" está maior ou igual que o valor específicado e menor ou igual que o valor especificado..
+-- o comando "and" significa "e"
+select * from cliente where data_nascimento not in ('2000-01-01', '2003-01-01', '1995-01-01') -- buscando em todos os elementos da tabela, para selecionar elementos especificos onde o valor de  "data_nascimento"  não está entre os valores especificados.
+-- o comando "not" significa negação. o comando "in" significa "dentro". "not in" significa "não contem"
+select * from cliente where logradouro is null -- buscando em todos os elementos da tabela, para selecionar elementos especificos onde o valor deles é nulo
+
+select nome from cliente order by nome asc -- seleciona a propriedade 'nome' na tabela cliente e ordena o nome em ordem crescente.
+
+select nome from cliente order by nome desc -- seleciona a propriedade 'nome' na tabela cliente e ordena o nome em ordem decrescente.
+
+select * from cliente where genero = 'F' -- buscando em todos os elementos da tabela, para selecionar a propriedade "genero" que tem o valor específicado 'F'
+
+select nome, genero from cliente where genero like 'F' -- buscando em todos os elementos da tabela, para selecionar a propriedade "genero" que tem o valor específicado 'F'
+
+select nome, profissao from cliente where profissao = 'prof' or profissao = 'professor' or profissao = 'prof' -- buscando no elemento nome e profissao onde o valor da propriedade "profissao" é especificado por vários valores diferentes.
+
+-- COMANDO DDL -> DEFINIÇÃO DE DADOS(tabela)
+
+alter table cliente 
+add nacionalidade varchar (100) -- adicionando a coluna nacionalidade com (100) characteres
+
+alter table cliente 
+drop column nacionalidade -- excluindo coluna nacionalidade
+
+-- COMANDO MDL -> MANIPULAÇÃO DE DADOS(tabela)
+
+update cliente set nome = "Luana Pelaes", municipio = "Macapa", uf = "AP" where idcliente = 6 -- atualizando vários dados de uma vez da tabela cliente
+
+update cliente set nacionalidade = 'Brasileiro' where idcliente is not null  -- atualizando vários dados da tabela cliente impondo uma condição com "where"
+
+delete from cliente where idcliente = 14 -- deletando uma célula específica
+
+alter table cliente rename column profissao to prof -- renomeando uma coluna específica
+
+select profissao from cliente where profissao like '%n%' -- FILTA OS VALORES QUE TENHAM A LETRA 'N' no meio
+
+CREATE TABLE profissao( -- criando tabela profissão
+
+idprofissao integer NOT NULL,
+nome varchar(30) NOT NULL,
+
+CONSTRAINT pk_prf_idprofissao PRIMARY KEY (idprofissao), -- CONSTRAINT SIGNIFICA RESTRIÇÃO
+
+CONSTRAINT un_prf_nome UNIQUE (nome) -- UNIQUE IMPÕE UMA RESTRIÇÃO PERMITINDO QUE O NOME SEJA CADASTRADO APENAS UMA VEZ
+)
+
+-- inserindo dados na tabela profissao
+
+insert into profissao (idprofissao,nome) values (1, 'Medico')
+
+insert into profissao (idprofissao,nome) values (2, 'Professor')
+
+insert into profissao (idprofissao,nome) values (3, 'Estudante')
+
+insert into profissao (idprofissao, nome) values (4, 'Gari')
+
+insert into profissao (idprofissao, nome) values (5, 'Dentista')
+
+insert into profissao (idprofissao, nome) values (6, 'Engenheiro')
+
+alter table cliente alter column idprofissao type integer
+
+select  idcliente, idprofissao from cliente
+
+--Adicionando uma chave estrangeira
+
+alter table cliente add constraint fk_cln_idprofissao foreign key (idprofissao) references profissao (idprofissao);
+
+alter table cliente drop idprofissao -- apaga a coluna
+
+alter table cliente add idprofissao integer -- cria a coluna
+
+update cliente set idprofissao = 1 where idcliente in (1,6,11)
+
+update cliente set idprofissao = 2 where idcliente in (8,9,10,12)
+
+update cliente set idprofissao = 3 where idcliente in (2,3,4)
+
+update cliente set idprofissao = 4 where idcliente = 5
+
+update cliente set idprofissao = 5 where idcliente = 7
+
+update cliente set idprofissao = 6 where idcliente = 13
+
+select * from cliente
+
+--criação tabela nacionalidade
+
+create table nacionalidade(
+
+idnacionalidade integer not null,
+nome varchar(30) not null,
+
+--criando restrições e chave primaria da tabela nacionalidade
+constraint pk_ncn_idnacionalidade primary key (idnacionalidade),
+constraint un_ncn_nome unique (nome)
+);
+
+select * from nacionalidade
+
+insert into nacionalidade (idnacionalidade, nome) values(1, 'Brasileiro') -- inserindo na tabela nacionalidade nas colunas (idnacionaldiade, nome) com os valores (1, 'Brasileiro')
+
+
+alter table cliente drop nacionalidade
+
+alter table cliente add idnacionalidade integer
+
+alter table cliente add constraint fk_cln_idnacionalidade foreign key (idnacionalidade) references nacionalidade (idnacionalidade);
+
+update cliente set idnacionalidade = 1 where idcliente > 0
+
+select * from cliente
+
+
+--- criando tabela complemento
+
+create table complemento(
+
+idcomplemento integer not null,
+nome varchar (30),
+
+constraint pk_cpl_idcomplemento primary key (idcomplemento),
+constraint un_cpl_nome unique (nome)
+
+)
+
+select * from complemento
+
+-- inserindo valores na tabela
+
+insert into complemento (idcomplemento, nome) values (1, 'Casa');
+
+insert into complemento (idcomplemento, nome) values (2, 'Apartamento');
+
+
+select idcliente, complemento from cliente order by idcliente asc
+
+alter table cliente drop complemento;
+
+alter table cliente add idcomplemento integer;
+
+alter table cliente add constraint fk_cln_idcomplemento foreign key (idcomplemento) references complemento (idcomplemento)
+
+update cliente set idcomplemento = 1 where idcliente in (1,2,6,10,12,13)
+
+update cliente set idcomplemento = 2 where idcliente in (3,4,5,7,8,9,11)
+
+
+-- criando tabela bairro
+create table bairro(
+
+idbairro integer not null,
+nome varchar (30),
+
+constraint pk_bro_idbairro primary key (idbairro),
+constraint un_bro_nome unique (nome)
+
+)
+
+select * from bairro
+
+
+-- inserindo valores na tabela bairro
+
+insert into bairro (idbairro, nome) values (1,'São Gonçalo do amarante')
+
+insert into bairro (idbairro, nome) values (2,'Cidade alta')
+
+insert into bairro (idbairro, nome) values (3,'Lagoa nova')
+
+insert into bairro (idbairro, nome) values (4,'Tirol')
+
+insert into bairro (idbairro, nome) values (5,'Dix Sept Rosado')
+
+-- excluindo a coluna bairro da tabela cliente e adicionando a coluna idbairro, que é uma chave estrangeira da tabela bairro
+
+alter table cliente drop bairro
+
+alter table cliente add idbairro integer;
+
+alter table cliente add constraint fk_cln_idbairro foreign key (idbairro) references bairro (idbairro)
+
+-- atualizando os valores da tabela cliente
+
+
+update cliente set idbairro = 1 where idcliente >=0 and idcliente <= 2
+
+update cliente set idbairro = 2 where idcliente >=2 and idcliente <= 4
+
+update cliente set idbairro = 3 where idcliente >=4 and idcliente <= 6
+
+update cliente set idbairro = 4 where idcliente >=6 and idcliente <= 8
+
+update cliente set idbairro = 5 where idcliente >=8 and idcliente <= 10
+
+update cliente set idbairro = 1 where idcliente in (11,12)
+
+select * from cliente
+
+create table uf( --criando tabela uf
+
+iduf integer not null,
+nome varchar (30),
+sigla varchar (2),
+
+constraint pk_uf_idmunicipio primary key (iduf), --restrição chave primária
+constraint un_uf_nome unique (nome), -- restrição nome unico
+constraint un_uf_sigla unique (sigla) -- restrição sigla unico
+);
+
+alter table cliente drop uf -- excluindo coluna uf da tabela cliente
+alter table cliente add  iduf integer -- adicionando coluna iduf na tabela cliente
+
+--inserindo dados na tabela uf
+
+insert into uf(iduf, nome, sigla) values (1, 'Rio de Janeiro', 'RJ');
+insert into uf(iduf, nome, sigla) values (2, 'Natal', 'RN');
+insert into uf(iduf, nome, sigla) values (3, 'Angra dos Reis', 'RJ');
+insert into uf(iduf, nome, sigla) values (4, 'Rio de Janeiro', 'RJ');
+insert into uf(iduf, nome, sigla) values (5, 'João Pessoa', 'PB');
+insert into uf(iduf, nome, sigla) values (6, 'Estância Velha', 'RS');
+insert into uf(iduf, nome, sigla) values (7, 'São José de Mipibu', 'RN');
+insert into uf(iduf, nome, sigla) values (8, 'Salvador', 'BA');
+insert into uf(iduf, nome, sigla) values (9, 'Novo Hamburgo', 'RS');
+insert into uf(iduf, nome, sigla) values (10, 'Pirangi', 'RN');
+insert into uf(iduf, nome, sigla) values (11, 'São Gonçalo do Amarante', 'RN');
+insert into uf(iduf, nome, sigla) values (12, 'Recife', 'PE');
+
+
+update cliente set iduf = 1 where idcliente >=0 and idcliente <= 2
+
+update cliente set iduf = 2 where idcliente >=2 and idcliente <= 4
+
+update cliente set iduf = 3 where idcliente >=4 and idcliente <= 6
+
+update cliente set iduf = 4 where idcliente >=6 and idcliente <= 8
+
+update cliente set iduf = 5 where idcliente >=8 and idcliente <= 10
+
+update cliente set iduf = 1 where idcliente in (11,12)
+
+create table municipio( --criando tabela municipio
+
+idmunicipio integer not null,
+nome varchar (30) not null,
+iduf integer not null,
+
+constraint pk_mcp_idmunicipio primary key (idmunicipio), -- restrição chave primaria
+constraint un_mcp_nome unique (nome), -- restrição para o nome ser unico
+constraint un_mcp_iduf foreign key (iduf) references uf(iduf) -- restrição chave estrangeira que se refere à tabela uf
+)
+
+select * from municipio
+
+-- inserindo dados na tabela minicipio
+
+insert into municipio (idmunicipio, nome, iduf) values (1, 'Natal', 1)
+insert into municipio (idmunicipio, nome, iduf) values (2, 'João Pessoa', 2)
+insert into municipio (idmunicipio, nome, iduf) values (3, 'Recife', 3)
+insert into municipio (idmunicipio, nome, iduf) values (4, 'Macapa', 4)
+insert into municipio (idmunicipio, nome, iduf) values (5, 'Estância Velha', 5)
+insert into municipio (idmunicipio, nome, iduf) values (6, 'Novo Hamburgo', 6)
+insert into municipio (idmunicipio, nome, iduf) values (7, 'Rio de Janeiro', 7)
+insert into municipio (idmunicipio, nome, iduf) values (8, 'Angra dos reis', 8)
+insert into municipio (idmunicipio, nome, iduf) values (9, 'Manaus', 9)
+insert into municipio (idmunicipio, nome, iduf) values (10, 'Salvador', 10)
+insert into municipio (idmunicipio, nome, iduf) values (11, 'Goianinha', 11)
+insert into municipio (idmunicipio, nome, iduf) values (12, 'Carajó', 12)
+
+select idcliente, idmunicipio from cliente order by idcliente asc
+
+alter table cliente drop municipio -- excluindo coluna municipio da tabela cliente
+alter table cliente drop uf -- excluindo coluna uf da tabela cliente
+alter table cliente add idmunicipio integer; -- adicionando coluna idmunicipio do tipo inteiro *SEMPRE INDENTIFICAR O TIPO DA COLUNA
+alter table cliente add constraint fk_cliente_idmunicipio foreign key (idmunicipio) references municipio (idmunicipio) -- adicionando restrição
+
+-- Atualizando dados na tabela cliente
+
+update cliente set idmunicipio = 1 where idcliente in (1,2,3,4,5)
+update cliente set idmunicipio = 2 where idcliente = 6
+update cliente set idmunicipio = 3 where idcliente = 7
+update cliente set idmunicipio = 4 where idcliente in (8,9)
+update cliente set idmunicipio = 5 where idcliente = 10
+update cliente set idmunicipio = 6 where idcliente in (11,12)
+update cliente set idmunicipio = 7 where idcliente in (13,14)
+update cliente set idmunicipio = 8 where idcliente = 15
+
+create table fornecedor( -- criando a tabela fornecedor
+idfornecedor integer not null,
+nome varchar(30) not null,
+
+
+-- restrições tabela fornecedor
+constraint pk_frn_fornecedor primary key (idfornecedor),
+constraint un_frn_nome unique (nome)
+)
+
+create table vendedor( -- criando a tabela vendedor
+idvendedor integer not null,
+nome varchar(30) not null,
+
+-- restrições tabela vendedor
+constraint pk_vnr_vendedor primary key (idvendedor),
+constraint un_vnr_nome unique (nome)
+)
+
+create table transportadora( -- criando tabela transportadora
+idtransportadora integer not null,
+nome varchar(50),
+idmunicipio integer,
+lougradouro varchar(50),
+numeri varchar(10),
+
+-- criando restrições tabela transportadora
+constraint pk_tns_transportadora primary key (idtransportadora),
+constraint un_tns_nome unique (nome),
+constraint fk_tns_idmunicipio foreign key(idmunicipio) references municipio(idmunicipio) -- usando chave estrangeira da tabela id municipio para linkar
+
+)
+
+alter table transportadora rename column numeri to numero -- alterando o nome da coluna pq eu escrevi errado na hora de criar a tabela kkkk
+
+create table produto( -- criando tabela produto
+idproduto integer not null,
+idfornecedor integer not null,
+nome varchar(50) not null,
+valor numeric (10, 2) not null,
+
+-- restrições tabela produto
+constraint pk_prd_transportadora primary key (idproduto),
+constraint un_prd_nome unique (nome),
+constraint fk_prd_idproduto foreign key(idfornecedor) references fornecedor(idfornecedor)
+
+)
+
+
+-- inserindo valores!!!
+insert into fornecedor (idfornecedor, nome) values (1, 'Joaquim')
+insert into fornecedor (idfornecedor, nome) values (2, 'Jorge')
+insert into fornecedor (idfornecedor, nome) values (3, 'João')
+insert into fornecedor (idfornecedor, nome) values (4, 'Jair')
+insert into fornecedor (idfornecedor, nome) values (5, 'Julio')
+insert into fornecedor (idfornecedor, nome) values (6, 'Jânio')
+
+
+select * from fornecedor
+
+
+insert into vendedor (idvendedor, nome) values (1, 'Gabriel')
+insert into vendedor (idvendedor, nome) values (2, 'Giovanni')
+insert into vendedor (idvendedor, nome) values (3, 'Gael')
+insert into vendedor (idvendedor, nome) values (4, 'Guilherme')
+insert into vendedor (idvendedor, nome) values (5, 'Gray')
+insert into vendedor (idvendedor, nome) values (6, 'Galil')
+
+select * from vendedor
+
+
+insert into transportadora (idtransportadora, idmunicipio, nome, lougradouro, numero) values (1, 1, 'BS. Transportes', 'Rua das Limas', 01)
+insert into transportadora (idtransportadora, idmunicipio, nome, lougradouro, numero) values (2, 2, 'União transportes', null, null)
+
+insert into produto (idproduto, idfornecedor, nome, valor) values (1, 1,'Microcomputador',800)
+insert into produto (idproduto, idfornecedor, nome, valor) values (2, 2, 'Monitor',500)
+insert into produto (idproduto, idfornecedor, nome, valor) values (3, 3, 'Placa mãe',200)
+insert into produto (idproduto, idfornecedor, nome, valor) values (4, 4,'HD',150)
+insert into produto (idproduto, idfornecedor, nome, valor) values (5, 5,'Placa de Video',200)
+insert into produto (idproduto, idfornecedor, nome, valor) values (6, 6,'Memoria Ram',100)

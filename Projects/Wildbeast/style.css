@@ -1,0 +1,568 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+  --header-height: ;
+  --border-radius: 0.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: #8844ee;
+  --second-color: #b07dfb;
+  --first-color-alt: #4c2685;
+  --header-gradient: linear-gradient(
+    135deg,
+    var(--first-color),
+    var(--second-color)
+  );
+  --body-color: #fff;
+  --text-color: #646464;
+  --container-color: #f2f3f6;
+  --label-color: #fff;
+  --shadow-color: rgba(44, 44, 44, 0.15);
+  /* Scroll Bar Colors */
+  --scroll-bar-color: #e4e4e4;
+  --scroll-thumb-color: #b4b8ca;
+  --scroll-bar-thumb-hover: #8b8d97;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Vollkorn", Georgia, serif;
+
+  /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+  --big-font-size: 4rem;
+  --h1-font-size: 3rem;
+  --h2-font-size: 2rem;
+  --normal-font-size: 1.125rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.625rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 700;
+
+  /*========== Bottom Margins ==========*/
+  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-1-75: 1.75rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-2-75: 2.75rem;
+  --mb-3: 3rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 5rem;
+    --h1-font-size: 4rem;
+    --h2-font-size: 3rem;
+    --normal-font-size: 1.2rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.625rem;
+  }
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --first-color: #6316d6;
+  --second-color: #b07dfb;
+  --first-color-alt: #341563;
+  --header-gradient: linear-gradient(
+    135deg,
+    var(--first-color),
+    var(--second-color)
+  );
+  --body-color: #131516;
+  --text-color: #cccccc;
+  --container-color: #262829;
+  --label-color: #262829;
+  --shadow-color: rgba(44, 44, 44, 0.15);
+  /* Scroll Bar Colors */
+  --scroll-bar-color: #e4e4e4;
+  --scroll-thumb-color: #b4b8ca;
+  --scroll-bar-color: #000000;
+  --scroll-thumb-color: #454a4d;
+  --scroll-bar-thumb-hover: #6d777c;
+}
+
+/*==================== BASE ====================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove o scroll horizontal: 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}*/
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/*==================== LAYOUT ====================*/
+.structure {
+  display: grid;
+  /* 3 colunas: sidenav, content & ads: */
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+
+  grid-template-areas:
+    "header header header"
+    "sidenav content content"
+    "sidenav ads ads"
+    "footer footer footer";
+}
+
+/*==================== HEADER ====================*/
+.header {
+  /* Definindo nas áreas de grid: */
+  grid-area: header;
+  background: var(--header-gradient);
+  padding: var(--mb-2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.logo {
+  max-width: 12rem;
+}
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header nav a {
+  display: block;
+  padding: 0.6rem;
+  color: white;
+  font-size: var(--normal-font-size);
+  background: var(--first-color);
+  border-radius: var(--border-radius);
+  transition: 0.1s;
+}
+.header nav a:hover {
+  background: var(--first-color-alt);
+}
+/* Só add a margem pros itens de lista
+os quais tiverem um vizinho igual 😁😎 */
+.header li + li {
+  /* Espaçamento entre os links: */
+  margin-left: var(--mb-2);
+}
+
+/*========== Button Dark/Light ==========*/
+.nav_btns {
+  display: flex;
+  align-items: center;
+  background: var(--first-color);
+  border-radius: var(--border-radius);
+  transition: 0.1s;
+}
+/* Adicionamos o padding direto na tag i do botão
+de change-theme. Do contrário, ele só é clicável
+diretamente no ícone. */
+.nav_btns i {
+  padding: 0.6rem;
+}
+.change-theme {
+  font-size: var(--normal-font-size);
+  color: white;
+  cursor: pointer;
+}
+.nav_btns:hover {
+  background: var(--first-color-alt);
+}
+
+/*==================== SIDE NAV ====================*/
+.sidenav {
+  grid-area: sidenav;
+  background: var(--container-color);
+  padding: var(--mb-2);
+}
+.sidenav li a {
+  display: block;
+  min-width: 6rem;
+  max-width: 8rem;
+  margin: 0 auto var(--mb-2) auto;
+  /* ☝🏼 0 pra cima, auto pra direita,
+  1.8 pra baixo, e auto pra esquerda*/
+  background: var(--body-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+  transition: 0.1s ease-in-out;
+}
+.sidenav li a:hover,
+.link_active {
+  background: var(--second-color) !important;
+}
+.link_active:hover {
+  background: white !important;
+}
+
+/*==================== ADVERTISING / ADVERTISEMENTS ====================*/
+.ads {
+  grid-area: ads;
+  background: var(--container-color);
+  display: grid;
+  align-content: start;
+  padding: var(--mb-2);
+  gap: var(--mb-2);
+  /* Deixando os ads responsivos sem media query */
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  /* Encaixa no máximo de colunas que conseguir, respeitando
+  o mínimo de 150px, e máximo de 1fr (preencher toda a coluna) */
+}
+
+/*==================== TITLE ====================*/
+.title {
+  color: var(--second-color);
+}
+
+.title h1 {
+  font-size: var(--h1-font-size);
+  line-height: 1;
+  font-weight: var(--font-semi-bold);
+}
+
+.title span {
+  font-size: var(--small-font-size);
+  font-style: italic;
+}
+
+/*==================== EMPHASIS ====================*/
+.emphasis {
+  font-size: var(--small-font-size);
+  color: var(--second-color);
+  /* Pra ele não crescer: */
+  max-width: 16rem;
+  font-weight: var(--font-semi-bold);
+  text-align: left;
+  word-spacing: var(--mb-0-25);
+}
+
+/*==================== CHARACTERISTICS ====================*/
+.characteristics {
+  display: flex;
+  align-items: flex-start;
+}
+
+.characteristics div {
+  width: 5rem;
+  text-align: center;
+  background: var(--header-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+}
+
+.characteristics div:first-child {
+  margin-right: var(--mb-2);
+}
+
+.characteristics span {
+  display: block;
+}
+
+.red {
+  color: #9e0202;
+  font-weight: var(--font-semi-bold);
+}
+.yellow {
+  color: #ffff00;
+}
+.green {
+  color: #00ff00;
+}
+
+.number {
+  color: var(--second-color);
+  font-size: 3rem;
+  line-height: 1;
+  margin: 10px auto;
+}
+
+.label {
+  background: var(--label-color);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  /* ☝🏼 0 canto superior direito, 0 canto superior esquerdo
+  & X no canto inferior direito, X no canto inferior esquerdo */
+  padding: 5px 0;
+  /* Pra que o gradiente não vaze da label branca: */
+  position: relative;
+  top: 2px;
+}
+
+.threeDigits {
+  font-size: 2.5rem;
+}
+
+/*==================== CONTENT ====================*/
+.content {
+  grid-area: content;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--mb-2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--mb-2);
+}
+
+.col-wide {
+  grid-column: 1 / -1;
+  /* Pega a coluna wide de ponta a ponta da coluna 1 */
+}
+
+.image1 {
+  grid-row: span 2;
+  align-self: end;
+}
+.image3 {
+  justify-self: center;
+  max-width: 1fr;
+}
+
+/*==================== TEXTS ====================*/
+p {
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: left;
+  max-width: 680px;
+}
+
+.info p + p {
+  margin-top: var(--mb-2);
+}
+
+/*==================== BLOCKQUOTE ====================*/
+.quote,
+.atributes {
+  background: var(--header-gradient);
+  padding: var(--mb-2);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+  /* ☝🏼 5px pra direita, 5px pra baixo, 
+  15px de desfoque, 0px de shadow grow */
+}
+
+.quote p {
+  color: white;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  /* ☝🏼 Cima e baixo 0, esquerda e direita auto */
+}
+
+/*==================== ATRIBUTES ====================*/
+.atributes li {
+  align-self: start;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: var(--normal-font-size);
+  padding: 1rem;
+}
+/* Divisor line: */
+.atributes li + li {
+  border-top: 2px solid var(--second-color);
+}
+
+/*==================== FOOTER ====================*/
+.footer {
+  grid-area: footer;
+  background: var(--header-gradient);
+}
+/* Só add a margem pros parágrafos
+os quais tiverem um vizinho igual 😁😎 */
+.footer p {
+  color: white;
+  text-align: center;
+  max-width: none;
+  padding: var(--mb-2);
+}
+.footer a {
+  color: white;
+}
+.footer a:hover {
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color-alt);
+}
+
+/*========== SCROLL UP ==========*/
+.scrollUp {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  background: var(--first-color);
+  opacity: 0.8;
+  padding: 0 0.3rem;
+  border-radius: var(--border-radius);
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+}
+.scrollUp:hover {
+  background: var(--first-color-alt);
+}
+.scrollUp_icon {
+  font-size: 1.5rem;
+  color: white;
+}
+/* Show scroll */
+.show-scroll {
+  bottom: 5rem;
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: var(--scroll-bar-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-bar-thumb-hover);
+}
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small & medium devices */
+@media (max-width: 600px) {
+  .content {
+    /* Todo o conteúdo vira de uma coluna apenas: */
+    grid-template-columns: auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+@media (max-width: 685px) {
+  @keyframes seta {
+    from {
+      right: 20px;
+    }
+    to {
+      right: 30px;
+    }
+  }
+
+  /* Criando a setinha que indica o scroll horizontal: */
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    font-size: 1.6rem;
+    top: -4px;
+    right: 20px;
+    color: var(--first-color);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+}
+@media (max-width: 760px) {
+  .structure {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "ads"
+      "footer";
+  }
+  /* ☝🏼 Todo o site em fica agora
+  em apenas uma única coluna */
+  .header {
+    grid-template-columns: auto;
+  }
+  .logo {
+    margin-bottom: 1.25rem;
+  }
+  .header li + li {
+    margin-left: 0.95rem; /* 👈🏽 15px */
+  }
+
+  .sidenav {
+    /* Para que não estoure o layout,
+    e sim crie uma própria barra de navegação: */
+    overflow-x: auto;
+    /* Para deixar o scroll fluído no mobile: */
+    -webkit-overflow-scrolling: touch;
+    /* Esconde a barrinha em dispositivos largos
+    da Microsoft(ms): */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    /* Para que a setinha com position absolute
+    que indica o scroll, referencie a sidenav,
+    e não o body: */
+    position: relative;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+  .sidenav ul li {
+    flex: 1 0 3.65rem;
+    /* 1 grow = pode crescer, 0 não diminui
+    mais que isso, e ten 3.65rem de flex-basis
+    (pading/cantos direitos e esquerdos) */
+  }
+  .sidenav {
+    padding: 0 1.8rem; /* 0 pra cima e pra baixo,
+    30px pixels da esquerda pra direita */
+  }
+  .sidenav li a {
+    margin: 1.8rem 1.8rem 1.8rem 0;
+    /* Cima, direita, baixo e esquerda */
+  }
+}
+
+/* For large devices */
+@media (min-width: 1200px) {
+  .structure {
+    grid-template-areas:
+      "header header header"
+      "sidenav content ads"
+      "footer footer footer";
+    /* ☝🏼 Ads ficam do lado direito 
+    do conteúdo, ao invés de embaixo: */
+  }
+}
