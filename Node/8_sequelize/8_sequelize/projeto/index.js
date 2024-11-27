@@ -129,7 +129,8 @@ app.get('/users/edituser/:id', async (req, res) => {
         const id = req.params.id;
         console.log('ID capturado:', id); // Adicione esta linha para verificar o ID
 
-        if (!id || isNaN(id)) {
+        if (!id || isNaN(id)) { // se o id fornecido for diferente de um ja criado, ou se não for um numero
+
             return res.status(400).send('ID inválido.');
         }
 
