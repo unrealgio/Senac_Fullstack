@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sequelize</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
     <nav>
-        <ul>
-            <li>
-                <a href="/">Cadastrar</a>
-            </li>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="/">Início</a></li>
+            <li><a href="/users/create">Cadastrar</a></li>
+            <li><a href="/users/listauser">Lista</a></li>
         </ul>
     </nav>
-    
 
     {{{body}}}
+
+    <script src="/script/script.js"></script>
 </body>
 </html>
