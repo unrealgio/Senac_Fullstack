@@ -1,0 +1,326 @@
+/* Estilo geral */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f0f17, #1a1a2e);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Títulos */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: #4dabf7; /* Azul neon */
+  text-shadow: 0 0 10px #4dabf7, 0 0 20px #4dabf7;
+}
+
+/* Formulários */
+.form {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #14142b; /* Preto com tom futurista */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form_control {
+  margin-bottom: 20px;
+}
+
+.form_control label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #e0e0e0;
+}
+
+.form_control input[type="text"],
+.form_control input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #1f1f36;
+  color: #e0e0e0;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.form_control input[type="text"]:focus,
+.form_control input[type="date"]:focus {
+  box-shadow: 0 0 10px #4dabf7;
+}
+
+/* Checkbox */
+.form-control.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-control.form-checkbox input {
+  transform: scale(1.2);
+  accent-color: #4dabf7;
+}
+
+.form-control.form-checkbox label {
+  font-size: 1rem;
+}
+
+/* Botões */
+.form-btn input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4dabf7;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-btn input[type="submit"]:hover {
+  background-color: #3478c5;
+  transform: translateY(-2px);
+}
+
+/* Container de usuários */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.item {
+  background: #1f1f36;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  text-align: center;
+}
+
+.item p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+/* Botões de detalhes e excluir */
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.detalhes, .excluir {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.detalhes {
+  background-color: #4dabf7;
+}
+
+.detalhes:hover {
+  background-color: #3478c5;
+  transform: translateY(-2px);
+}
+
+.excluir {
+  background-color: #ff5252;
+  border: none;
+}
+
+.excluir:hover {
+  background-color: #ff3838;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* Detalhes do usuário */
+.detalhesUser {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #1f1f36;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.detalhesUser p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+.detalhesUser p strong {
+  color: #4dabf7;
+}
+
+.btn_editar {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4dabf7;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn_editar:hover {
+  background-color: #3478c5;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container, .detalhesUser, .form {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .item {
+      width: 100%;
+  }
+
+  .btn_container {
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+
+/* Estilo geral */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f0f17, #1a1a2e);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Estilo da navegação */
+nav {
+  background: #14142b; /* Preto futurista */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-list a:hover {
+  background-color: #4dabf7;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Menu hamburguer (mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: flex;
+  }
+
+  .nav-list {
+      display: none;
+      flex-direction: column;
+      background: #1f1f36;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+  }
+
+  .nav-list li {
+      margin: 10px 0;
+  }
+
+  .nav-list.active {
+      display: flex;
+  }
+}
+
+/* Script CSS para animação do menu (caso queira ativar no JavaScript) */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Espaço para conteúdo dinâmico */
+body > *:not(nav) {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
