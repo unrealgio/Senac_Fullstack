@@ -4,7 +4,6 @@ const exphbs = require('express-handlebars') // atribuindo à minha variável, a
 
 const moment = require('moment-timezone');  // Usando moment-timezone para garantir o fuso horário correto
 
-
 const app = express(); // atribuindo a biblioteca express à uma variável curta para boas práticas
 
 const conn = require('./database/conn') // importando meu arquivo conn
@@ -26,6 +25,8 @@ app.use( // utilizando middleware
 app.set('view engine', 'handlebars') // setando a engine de visualização para o express handlebars
 
 app.use(express.static('public')) // utilizando metodo static para que eu possa importar arquivos estáticos no meu programa
+
+// ROTAS
 
 app.get('/', (req, res) => { // utilizando metodo get para renderizar minha pagina principal
 
