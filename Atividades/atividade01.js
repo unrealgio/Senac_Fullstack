@@ -14,7 +14,7 @@ Crie uma classe chamada Produto com os seguintes atributos privados: id, nome, p
 
 class Produto {
     constructor(id, nome, preco) {
-      this._id = id;      // Atributo privado usando convenção com '_'
+      this._id = id;
       this._nome = nome;
       this._preco = preco;
     }
@@ -42,7 +42,7 @@ class Produto {
     }
   }
   
-  // gerenciando os produtos
+  // Gerenciando os produtos
   class SistemaProdutos {
     constructor() {
       this.produtos = [];
@@ -58,7 +58,7 @@ class Produto {
       return this.produtos;
     }
   
-    // atualizando um produto pelo id
+    // Atualizando um produto pelo id
     atualizarProduto(id, novoProduto) {
       const produto = this.produtos.find(prod => prod.id === id);
       if (produto) {
@@ -69,7 +69,7 @@ class Produto {
       }
     }
   
-    // removendo um produto pelo id
+    // Removendo um produto pelo id
     removerProduto(id) {
       this.produtos = this.produtos.filter(prod => prod.id !== id);
     }
