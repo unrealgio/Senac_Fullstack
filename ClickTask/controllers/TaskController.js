@@ -22,7 +22,9 @@ module.exports = class TaskController {
 
     // Renderiza a página inicial das tarefas.
     static homeTasks(req, res) {
-        res.render('tasks/home'); // Renderiza a view 'home' na pasta 'tasks'.
+
+        
+        res.render('tasks/home') // Renderiza a view 'home' na pasta 'tasks'.
     }
 
     // Salva uma nova tarefa no banco de dados e redireciona para a lista de tarefas.

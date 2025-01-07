@@ -12,7 +12,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 
 // Importa a configuração do banco de dados, geralmente usada para estabelecer a conexão com um banco relacional (ex.: MySQL, PostgreSQL).
-const conn = require('../ClickTask-main/database/conn');
+const conn = require('../ClickTask/database/conn');
 
 // Importa o middleware 'method-override', que permite usar métodos HTTP como PUT e DELETE através de formulários HTML.
 // Por padrão, formulários HTML só suportam GET e POST.
@@ -27,7 +27,7 @@ const port = process.env.PORT || 3000;
 const Task = require('./models/Task');
 
 // Importa as rotas para tarefas, onde estão definidos os endpoints relacionados a elas.
-const taskRoutes = require('../ClickTask-main/routes/tasksRoutes');
+const taskRoutes = require('../ClickTask/routes/tasksRoutes');
 
 // Adiciona o middleware 'method-override' para permitir o uso de métodos HTTP personalizados via query string '_method'.
 // Exemplo: um formulário pode simular um DELETE adicionando '?_method=DELETE' à URL.
